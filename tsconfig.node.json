@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "allowSyntheticDefaultImports": true,
+    "types": ["node"]
+  },
+  "include": [
+    "packages/scripts/**/*.ts",
+    "packages/backend/**/*.ts",
+    "packages/front/build/**/*.ts",
+    "**/*.vite.config.ts"
+  ],
+  "exclude": ["**/dist/**", "**/node_modules/**", "**/*spec.ts"]
+}

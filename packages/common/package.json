@@ -1,0 +1,13 @@
+{
+  "name": "common",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --ext .ts,.cts,.mts --fix --ignore-path ../../.eslintignore",
+    "check": "tsc --noEmit --skipLibCheck"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
