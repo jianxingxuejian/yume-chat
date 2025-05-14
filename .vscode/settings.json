@@ -4,7 +4,12 @@
   "npm.packageManager": "pnpm",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "typescript.tsdk": "node_modules\\typescript\\lib",
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "unocss.root": ["packages/frontend"],
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
   }
 }

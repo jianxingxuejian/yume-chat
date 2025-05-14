@@ -8,7 +8,6 @@
 
 <script setup lang="ts">
 import { NConfigProvider, zhCN, dateZhCN, type GlobalThemeOverrides } from 'naive-ui'
-import { NaiveProvider } from '@/components/'
 
 const themeOverrides: GlobalThemeOverrides = {}
 </script>

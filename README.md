@@ -1,6 +1,10 @@
-<h1 align="center">yume-chat</h1>
+<div align="center">
+
+<h1>yume-chat</h1>
 
 ![](docs/logo.png)
+
+</div>
 
 _yume is the romanization of the Japanese word "夢" (dream)._
 _Always remember that AI does not possess intelligence — it merely speaks in dreams._

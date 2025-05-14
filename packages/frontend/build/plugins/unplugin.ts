@@ -1,6 +1,9 @@
 import AutoImport from 'unplugin-auto-import/vite'
 import Icons from 'unplugin-icons/vite'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
+import Components from 'unplugin-vue-components/vite'
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
+import IconsResolver from 'unplugin-icons/resolver'
 
 export default [
   AutoImport({
@@ -18,8 +21,23 @@ export default [
     scale: 1,
     defaultStyle: 'display: inline-block',
     customCollections: {
-      // 加载自定义图标
+      // load custom icons
       local: FileSystemIconLoader('packages/common/assets/icons'),
     },
+  }),
+  Components({
+    dirs: ['src/components'],
+    deep: true,
+    directives: true,
+    dts: 'src/types/components.d.ts',
+    include: [/\.vue$/, /\.vue\?vue/],
+    exclude: [/[\\/]node_modules[\\/]/],
+    resolvers: [
+      NaiveUiResolver(),
+      IconsResolver({
+        customCollections: ['custom'],
+        prefix: 'icon',
+      }),
+    ],
   }),
 ]
