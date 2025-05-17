@@ -13,5 +13,17 @@ export default defineConfig((env) => {
       },
     },
     plugins: setupVitePlugins(viteEnv),
+    server: {
+      host: true,
+      port: 5173,
+      proxy: {
+        [viteEnv.VITE_API_PREFIX]: {
+          target: viteEnv.VITE_PROXY_URL,
+          changeOrigin: true,
+          ws: true,
+          rewrite: (path) => path.replace(viteEnv.VITE_API_PREFIX, ''),
+        },
+      },
+    },
   }
 })

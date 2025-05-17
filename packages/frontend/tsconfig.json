@@ -7,7 +7,7 @@
     }
   },
   "include": [
-    "../common/types/*.d.ts",
+    "../common/types/**/*.d.ts",
     "src/**/*.d.ts",
     "src/**/*.ts",
     "src/**/*.vue",

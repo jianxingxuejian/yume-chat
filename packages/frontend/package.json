@@ -12,16 +12,20 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@ai-sdk/vue": "^1.2.12",
     "@vueuse/core": "^13.1.0",
     "axios": "^1.9.0",
     "lodash-es": "^4.17.21",
+    "markdown-it": "^14.1.0",
     "pinia": "^3.0.2",
     "vue": "^3.5.13",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@iconify-json/bi": "^1.2.4",
+    "@iconify-json/mdi": "^1.2.3",
     "@iconify/vue": "^5.0.0",
+    "@types/markdown-it": "^14.1.2",
     "@vitejs/plugin-vue": "^5.2.4",
     "naive-ui": "^2.41.0",
     "sass": "^1.88.0",

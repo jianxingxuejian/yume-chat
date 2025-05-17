@@ -10,10 +10,11 @@
     "declaration": true,
     "outDir": "./dist",
     "target": "ES2023",
-    "incremental": true
+    "incremental": true,
+    "skipLibCheck": true
     // "noImplicitAny": false,
     // "strictBindCallApply": false,
     // "noFallthroughCasesInSwitch": false
   },
-  "include": ["../common/types/*.d.ts", "src/**/*.d.ts", "src/**/*.ts"]
+  "include": ["../common/types/**/*.d.ts", "src/**/*.d.ts", "src/**/*.ts"]
 }

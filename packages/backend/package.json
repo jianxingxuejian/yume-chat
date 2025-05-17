@@ -19,15 +19,22 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@ai-sdk/google": "^1.2.18",
+    "@ai-sdk/openai": "^1.3.22",
     "@nestjs/common": "^11.1.0",
+    "@nestjs/config": "^4.0.2",
     "@nestjs/core": "^11.1.0",
     "@nestjs/platform-express": "^11.1.0",
     "@prisma/client": "^6.7.0",
-    "common": "workspace:^"
+    "ai": "^4.3.15",
+    "common": "workspace:^",
+    "express": "^5.1.0",
+    "undici": "^7.9.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^11.0.7",
     "@nestjs/testing": "^11.1.0",
+    "@types/express": "^5.0.1",
     "@types/jest": "^29.5.14",
     "@types/supertest": "^6.0.3",
     "prisma": "^6.7.0",

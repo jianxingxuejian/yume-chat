@@ -12,4 +12,4 @@ _Always remember that AI does not possess intelligence — it merely speaks in d
 This is an experimental project. Most features are under active development and may be significantly changed or removed at any time.
 This project uses Node.js for the backend and Vue for the frontend.
 It is designed to support multiple platforms, including Web, Windows, macOS, Linux, Android, and iOS.
-For more mature solutions, you might want to check out [NextChat](https://github.com/ChatGPTNextWeb/NextChat) and [one-api](https://github.com/songquanpeng/one-api).
+For more mature solutions, you might want to check out [NextChat](https://github.com/ChatGPTNextWeb/NextChat), [one-api](https://github.com/songquanpeng/one-api) or [coai](https://github.com/coaidev/coai).

@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "fe:dev": "pnpm -r -F frontend dev",
     "db:init": "pnpm -r -F backend db:init",
     "be:dev": "pnpm -r -F backend start:dev",
     "lint": "pnpm -r -F ./packages/** lint",
