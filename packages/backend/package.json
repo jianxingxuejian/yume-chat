@@ -29,7 +29,8 @@
     "ai": "^4.3.15",
     "common": "workspace:^",
     "express": "^5.1.0",
-    "undici": "^7.9.0"
+    "undici": "^7.9.0",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^11.0.7",

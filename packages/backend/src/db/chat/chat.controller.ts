@@ -5,6 +5,7 @@ import { createOpenAI } from '@ai-sdk/openai'
 import { createGoogleGenerativeAI } from '@ai-sdk/google'
 import { Response } from 'express'
 import { type Dispatcher, ProxyAgent } from 'undici'
+import { v4 as uuidv4 } from 'uuid'
 import { ChatService } from './chat.service'
 import { proxyFetch } from '@/utils'
 
@@ -29,7 +30,6 @@ export class ChatController implements OnModuleInit {
   async chat(
     @Body()
     body: {
-      id: string
       messages: {
         role: 'user' | 'assistant' | 'system'
         content: string
@@ -44,6 +44,9 @@ export class ChatController implements OnModuleInit {
       role: msg.role,
       content: msg.content,
     }))
+
+    const conversationId = uuidv4()
+    res.setHeader('X-Conversation-ID', conversationId)
 
     let result
 

@@ -9,12 +9,13 @@ const routes: Route.Config[] = [
     },
   },
   {
-    path: '/chat',
+    path: '/chat/:id?',
     name: 'chat',
     component: () => import('@/views/chat/index.vue'),
     meta: {
       title: 'yume-chat',
     },
+    props: true,
   },
 ]
 

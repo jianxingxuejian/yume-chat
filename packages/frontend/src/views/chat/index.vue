@@ -128,12 +128,9 @@ import { useMessage as useNaiveMessage } from 'naive-ui' // Renamed to avoid con
 import { useChat } from '@ai-sdk/vue'
 import MarkdownIt from 'markdown-it'
 
-type Model =
-  | 'gpt-4o'
-  | 'gpt-3.5-turbo'
-  | 'gemini-2.0-flash'
-  | 'gemini-2.5-flash-preview-04-17'
-  | string
+const props = defineProps({
+  id: String,
+})
 
 const naiveMessage = useNaiveMessage()
 
@@ -155,8 +152,19 @@ const renderMarkdown = (text: string) => {
   return md.render(text)
 }
 
+const router = useRouter()
+
 const { messages, input, handleSubmit, isLoading, error, stop } = useChat({
   api: '/api/chat/stream',
+  onResponse: (response: Response) => {
+    // 当这是一个新对话且我们还没有conversationId时，尝试从header获取
+    if (!props.id && response.ok) {
+      const newConvId = response.headers.get('X-Conversation-ID')
+      if (newConvId) {
+        router.push({ name: 'chat', params: { id: newConvId } })
+      }
+    }
+  },
   onError: (err) => {
     naiveMessage.error(`请求失败: ${err.message || '未知错误'}`)
     const lastUserMessageIndex = messages.value.findLastIndex((m) => m.role === 'user')
