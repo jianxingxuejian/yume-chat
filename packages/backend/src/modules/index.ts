@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
 import { UserModule } from './user/user.module'
 import { ChatModule } from './chat/chat.module'
+import { PrismaModule } from './prisma/prisma.module'
 
 @Module({
   imports: [
@@ -9,6 +10,7 @@ import { ChatModule } from './chat/chat.module'
       isGlobal: true,
       envFilePath: '.env',
     }),
+    PrismaModule,
     UserModule,
     ChatModule,
   ],

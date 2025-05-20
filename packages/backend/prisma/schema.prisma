@@ -15,7 +15,17 @@ datasource db {
 }
 
 model User {
-  id          Int       @id @default(autoincrement())
-  create_time DateTime  @default(now())
-  update_time DateTime? @updatedAt
+  id        Int       @id @default(autoincrement())
+  username  String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+}
+
+model Conversation {
+  id        String    @id @default(uuid())
+  model     String
+  title     String?
+  data      String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
 }

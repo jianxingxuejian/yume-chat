@@ -11,6 +11,6 @@ declare namespace Chat {
   interface ChatResult {
     id: string
     model: string
-    content: string
+    messages: ChatMessage[]
   }
 }

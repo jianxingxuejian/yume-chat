@@ -124,13 +124,14 @@
 
 <script setup lang="ts">
 import { ref, nextTick, onMounted, watch } from 'vue'
-import { useMessage as useNaiveMessage } from 'naive-ui' // Renamed to avoid conflict
+import { useMessage as useNaiveMessage } from 'naive-ui'
 import { useChat } from '@ai-sdk/vue'
 import MarkdownIt from 'markdown-it'
+import { getChat } from '@/api'
 
-const props = defineProps({
-  id: String,
-})
+const props = defineProps<{
+  id: string
+}>()
 
 const naiveMessage = useNaiveMessage()
 
@@ -157,7 +158,7 @@ const router = useRouter()
 const { messages, input, handleSubmit, isLoading, error, stop } = useChat({
   api: '/api/chat/stream',
   onResponse: (response: Response) => {
-    // 当这是一个新对话且我们还没有conversationId时，尝试从header获取
+    // 当这是一个新对话且没有conversationId时，尝试从header获取
     if (!props.id && response.ok) {
       const newConvId = response.headers.get('X-Conversation-ID')
       if (newConvId) {
@@ -181,6 +182,21 @@ const { messages, input, handleSubmit, isLoading, error, stop } = useChat({
     })
   },
 })
+
+if (props.id) {
+  getChat(props.id).then((res) => {
+    const msgs = res?.data.messages
+    if (!msgs) return
+    msgs.forEach((msg) => {
+      messages.value.push({
+        id: `msg-${Date.now()}`,
+        role: msg.role,
+        content: msg.content,
+        parts: [],
+      })
+    })
+  })
+}
 
 onMounted(() => {
   const storedApiKey = localStorage.getItem('yume-chat-apiKey')
@@ -227,6 +243,7 @@ const handleChatSubmit = async (event?: Event) => {
       data: {
         model: selectedModel.value,
         apiKey: apiKey.value,
+        conversationId: props.id,
       },
     },
   })
